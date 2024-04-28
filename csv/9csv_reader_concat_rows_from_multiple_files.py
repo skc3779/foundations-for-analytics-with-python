@@ -3,6 +3,9 @@ import csv
 import glob
 import os
 import sys
+'''
+python 9csv_reader_concat_rows_from_multiple_files.py ./ ./output_files/9output.csv
+'''
 
 input_path = sys.argv[1]
 output_file = sys.argv[2]

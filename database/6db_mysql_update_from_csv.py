@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 import csv
-import MySQLdb
+import pymysql
 import sys
+'''
+python 2db_insert_rows.py ./data_for_updating_mysql.csv
+'''
 
 # Path to and name of a CSV input file
 input_file = sys.argv[1]
 
 # Connect to a MySQL database
-con = MySQLdb.connect(host='localhost', port=3306, db='my_suppliers', \
-user='root', passwd='my_password')
+con = pymysql.connect(host='localhost', port=3306, database='my_suppliers', user='root', passwd='Qwer12#$')
 c = con.cursor()
 	
 # Read the CSV file and update the specific rows

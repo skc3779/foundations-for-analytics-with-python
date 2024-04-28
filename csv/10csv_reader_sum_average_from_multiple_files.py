@@ -4,7 +4,9 @@ import glob
 import os
 import string
 import sys
-
+'''
+python 10csv_reader_sum_average_from_multiple_files.py ./ ./output_files/10output.csv
+'''
 input_path = sys.argv[1]
 output_file = sys.argv[2]
 
@@ -17,14 +19,14 @@ filewriter.writerow(output_header_list)
 for input_file in glob.glob(os.path.join(input_path,'sales_*')):
 	with open(input_file, 'r', newline='') as csv_in_file:
 		filereader = csv.reader(csv_in_file)
-		output_list = [ ]
+		output_list = []
 		output_list.append(os.path.basename(input_file))
 		header = next(filereader)
 		total_sales = 0.0
 		number_of_sales = 0.0
 		for row in filereader:
 			sale_amount = row[3]
-			total_sales += float(str(sale_amount).strip('$').replace(',',''))
+			total_sales += float(str(sale_amount).strip('$').replace(',', ''))
 			number_of_sales += 1.0
 		average_sales = '{0:.2f}'.format(total_sales / number_of_sales)
 		output_list.append(total_sales)

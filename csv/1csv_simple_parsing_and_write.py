@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 import sys
 
+'''
+python 1csv_simple_parsing_and_write.py supplier_data.csv ./output_files/1output.csv
+'''
 input_file = sys.argv[1]
 output_file = sys.argv[2]
 

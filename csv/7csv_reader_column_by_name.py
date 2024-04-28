@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
+# -*- coding: utf_8 -*-
 import csv
 import sys
+'''
+python 7csv_reader_column_by_name.py sales_march_2014.csv ./output_files/7output.csv
+'''
 
 input_file = sys.argv[1]
 output_file = sys.argv[2]

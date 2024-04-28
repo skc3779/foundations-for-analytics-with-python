@@ -3,8 +3,9 @@ import sqlite3
 
 # Create an in-memory SQLite3 database
 # Create a table called sales with four attributes
-con = sqlite3.connect(':memory:')
-query = """CREATE TABLE sales
+# con = sqlite3.connect(':memory:')
+con = sqlite3.connect('sales.db')
+query = """CREATE TABLE IF NOT EXISTS sales
 			(customer VARCHAR(20), 
 			 product VARCHAR(40),
 			 amount FLOAT,

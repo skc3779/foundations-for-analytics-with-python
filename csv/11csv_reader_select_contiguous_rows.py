@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 import csv
 import sys
+'''
+python 11csv_reader_select_contiguous_rows.py sales_march_2014.csv ./output_files/11output.csv
+'''
 
 input_file = sys.argv[1]
 output_file = sys.argv[2]

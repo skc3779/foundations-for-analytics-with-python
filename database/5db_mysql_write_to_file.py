@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 import csv
-import MySQLdb
+import pymysql
 import sys
 
 # Path to and name of a CSV output file
 output_file = sys.argv[1]
 
 # Connect to a MySQL database
-con = MySQLdb.connect(host='localhost', port=3306, db='my_suppliers', \
-user='root', passwd='my_password')
+con = pymysql.connect(host='localhost', port=3306, database='my_suppliers', user='root', passwd='Qwer12#$')
 c = con.cursor()
 
 # Create a file writer object and write the header row

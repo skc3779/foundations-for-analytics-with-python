@@ -2,6 +2,10 @@
 import csv
 import sys
 
+'''
+python 3csv_reader_value_meets_condition.py supplier_data.csv ./output_files/3output.csv
+'''
+
 input_file = sys.argv[1]
 output_file = sys.argv[2]
 

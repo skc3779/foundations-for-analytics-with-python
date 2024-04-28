@@ -5,6 +5,10 @@ import sys
 input_file = sys.argv[1]
 output_file = sys.argv[2]
 
+'''
+python 4csv_reader_value_meets_condition.py supplier_data.csv ./output_files/4output.csv
+'''
+
 important_dates = ['1/20/14', '1/30/14']
 
 with open(input_file, 'r', newline='') as csv_in_file:

@@ -1,12 +1,57 @@
 #!/usr/bin/env python3
 import sys
 from datetime import date
-from xlrd import open_workbook, xldate_as_tuple
-from xlwt import Workbook
+# from xlrd import open_workbook, xldate_as_tuple
+# from xlwt import Workbook
+import openpyxl
+import warnings
+
+'''
+python 2excel_parsing_and_write.py ./sales_2013.xlsx ./output_files/4output.xlsx
+'''
+
+warnings.filterwarnings('ignore')
 
 input_file = sys.argv[1]
 output_file = sys.argv[2]
 
+sale_amount_column_index = 3
+workbook = openpyxl.load_workbook(input_file)
+# 첫 번째 Sheet
+worksheet = workbook['january_2013']
+# 새로운 워크시트 생성
+output_worksheet = workbook.create_sheet("jan_2013_output")
+data = []
+header = [cell.value for cell in worksheet[1]]
+print(header)
+data.append(header)
+for row in worksheet.iter_rows(min_row=2):
+    row_list = []
+    sale_amount = row[3].value
+    print('sale_amount', sale_amount)
+    if sale_amount > 1400.0:
+        for col in row:
+            cell_value = col.value
+            cell_type = col.data_type
+            print('cell_type', cell_type)
+            if cell_type == 'd':
+                date_cell = cell_value.strftime('%m/%d/%Y')
+                row_list.append(date_cell)
+            else:
+                row_list.append(cell_value)
+    if row_list:
+        data.append(row_list)
+
+for list_index, output_list in enumerate(data):
+    for element_index, element in enumerate(output_list):
+        # row, column 1 ~ 시작한다.
+        output_worksheet.cell(row=list_index+1, column=element_index+1, value=element)
+
+workbook.save(output_file)
+
+
+
+'''
 output_workbook = Workbook()
 output_worksheet = output_workbook.add_sheet('jan_2013_output')
 
@@ -37,3 +82,4 @@ with open_workbook(input_file) as workbook:
 			output_worksheet.write(list_index, element_index, element)
 
 output_workbook.save(output_file)
+'''

@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 import csv
 import sys
+'''
+python 12csv_reader_add_header_row.py supplier_data.csv ./output_files/12output.csv
+'''
 
 input_file = sys.argv[1]
 output_file = sys.argv[2]
@@ -11,6 +14,7 @@ with open(input_file, 'r', newline='') as csv_in_file:
 		filewriter = csv.writer(csv_out_file)
 		header_list = ['Supplier Name', 'Invoice Number', \
 					   'Part Number', 'Cost', 'Purchase Date']
+		header = next(filereader)
 		filewriter.writerow(header_list)
 		for row in filereader:
-			filewriter.writerow (row)
+			filewriter.writerow(row)

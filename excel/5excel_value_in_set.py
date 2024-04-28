@@ -1,12 +1,22 @@
 #!/usr/bin/env python3
 import sys
 from datetime import date
-from xlrd import open_workbook, xldate_as_tuple
-from xlwt import Workbook
+# from xlrd import open_workbook, xldate_as_tuple
+# from xlwt import Workbook
+import openpyxl
+import warnings
+'''
+python 2excel_parsing_and_write.py ./sales_2013.xlsx ./output_files/4output.xlsx
+'''
+
+warnings.filterwarnings('ignore')
 
 input_file = sys.argv[1]
 output_file = sys.argv[2]
 
+
+
+'''
 output_workbook = Workbook()
 output_worksheet = output_workbook.add_sheet('jan_2013_output')
 
@@ -40,3 +50,5 @@ with open_workbook(input_file) as workbook:
 			output_worksheet.write(list_index, element_index, element)
 
 output_workbook.save(output_file)
+
+'''

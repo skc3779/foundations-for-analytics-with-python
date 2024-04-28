@@ -2,7 +2,9 @@
 import csv
 import sqlite3
 import sys
-
+'''
+python 2db_insert_rows.py ./supplier_data_for_mysql_database.csv
+'''
 # Path to and name of a CSV input file
 input_file = sys.argv[1]
 
